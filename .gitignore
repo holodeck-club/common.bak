@@ -1,0 +1,6 @@
+.DS_Store
+._*
+.jspm_packages
+.sw*
+node_modules/
+npm-debug*.log

@@ -1,0 +1,1 @@
+"bundle";!function(){var a=System.amdDefine;a("github:aframevr/aframe@master.js",["github:aframevr/aframe@master/dist/aframe.js"],function(a){return a})}();

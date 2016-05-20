@@ -1,0 +1,28 @@
+{
+  "private": true,
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "browser-sync": "^2.12.8",
+    "jspm": "^0.16.34"
+  },
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "NODE_ENVIRONMENT='development' npm run server",
+    "prod": "npm run server",
+    "server": "browser-sync start --config bs-config.js",
+    "jspm": "jspm",
+    "bundle": "node jspm-bundle.js"
+  },
+  "jspm": {
+    "directories": {
+      "packages": ".jspm_packages"
+    },
+    "configFile": "jspm-config.js",
+    "dependencies": {
+      "aframevr/aframe": "github:aframevr/aframe@master",
+      "donmccurdy/aframe-extras": "github:donmccurdy/aframe-extras@^1.15.1",
+      "gasolin/aframe-href-component": "github:gasolin/aframe-href-component@master"
+    },
+    "devDependencies": {}
+  }
+}
