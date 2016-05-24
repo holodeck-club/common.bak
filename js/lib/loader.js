@@ -79,16 +79,10 @@ function fetchJSON (url, cb) {
   return req;
 }
 
-function injectScripts (srcs, thisScript) {
-  if (thisScript && thisScript.nextSibling) {
-    srcs.forEach(function (src) {
-      document.head.insertBefore(createScript(src), thisScript.nextSibling);
-    });
-  } else {
-    srcs.forEach(function (src) {
-      document.head.appendChild(createScript(src));
-    });
-  }
+function injectScripts (srcs) {
+  srcs.forEach(function (src) {
+    document.head.appendChild(createScript(src));
+  });
 }
 
 function createScript (src) {
@@ -115,7 +109,6 @@ if (manifest) {
     }
 
     var scripts = manifestData.scripts || [];
-    var thisScript = document.head.querySelector('script[src*="loader.js"]');
 
     // Support browserify, npm, jspm, GitHub repo/path, direct URLs, etc.
     if (manifestData.package && manifestData.package.format === 'jspm') {
@@ -140,7 +133,7 @@ if (manifest) {
       console.log('[manifest-loader] Loading script "%s"', script);
     });
 
-    injectScripts(scripts, thisScript);
+    injectScripts(scripts);
   });
 }
 
