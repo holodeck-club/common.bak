@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no,user-scalable=no,minimal-ui">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#0ff">
+    <style>html, body { background: #111; }</style>
     <link rel="manifest" href="manifest.json">
     <script src="../../common/js/lib/loader.js"></script>
   </head>
@@ -13,26 +14,37 @@
     <a-scene fog="type: linear; color: #111; far: 2200; near: 0">
       <!-- <a-scene fog="type: exponential; density: .05; color: #000; far: 10; near: 0"> -->
       <a-assets>
-        <a-mixin id="sceneText" text="font: Graph Black; size: 1" material="color: #fff"></a-mixin>
+        <!-- <a-mixin id="sceneText" text="font: Graph Black; size: 1" material="color: #fff"></a-mixin> -->
         <img id="grid" src="../../common/img/grid.png" style="display: none">
+        <!-- <a-asset-item id="spock" src="../../common/models/spock/Spock.dae"></a-asset-item> -->
+        <!-- <a-asset-item id="spock-mtl" src="../../common/models/spock/Spock.mtl"></a-asset-item> -->
+        <!-- <a-asset-item id="spock-obj" src="../../common/models/spock/Spock.obj"></a-asset-item> -->
       </a-assets>
 
-<!--
-      <a-entity geometry="primitive: box; depth: 250; height: 250; width: 250"
+      <a-obj-model src="#spock-obj" mtl="#spock-mtl"><a-obj-model>
+
+      <a-collada-model src="#spock" position="1 0 -1" rotation="0 30 0"
+                       scale="1.4 1.4 1.4"></a-collada-model>
+
+      <a-entity geometry="primitive: box; depth: 250; height: 150; width: 250"
                 material="metalness: 0; src: #grid;
-                side: double; repeat: 75 75; roughness: 1"
+                side: double; repeat: 25 25; roughness: 1"
                 position="0 0 0">
-      </a-entity> -->
+      </a-entity>
 
-<a-collada-model src="../../common/models/spock/Spock.dae" scale="1 1 1" position="0 -3.5 0.85" rotation="0 -90 0"></a-collada-model>
+      <a-entity>
+        <a-entity position="0 2 4" camera look-controls="enabled: true" cursor-visible="enabled: false" wasd-controls="enabled: true; acceleration: 1500">
+        </a-entity>
+      </a-entity>
 
-<!--       <a-entity>
+      <!--
+       <a-entity>
         <a-entity position="0 2 4" camera look-controls="enabled: true" cursor-visible="enabled: false" wasd-controls="enabled: true; acceleration: 1500">
           <a-collada-model src="../../common/Spock.dae" scale="1 1 1" position="0 -3.5 0.85" rotation="0 -90 0"></a-collada-model>
+          <a-obj-model src="#spock-obj" mtl="#spock-mtl"><a-obj-model>
         </a-entity>
-      </a-entity> -->
-
-
+      </a-entity>
+      -->
 
       <!-- Lighting -->
       <a-light type="ambient" color="#bbb"></a-light>
