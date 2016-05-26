@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
     <title>Meditation Orbs</title>
-     <script src="../js/aframe.dev.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no,user-scalable=no,minimal-ui">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#0ff">
+    <link rel="manifest" href="manifest.json">
+    <meta name="viewmode" content="projection=stereo">
+    <script src="../../common/js/lib/loader.js"></script>
   </head>
   <body>
 
@@ -15,7 +20,7 @@
       <a-asset-item id="meditlargeorbs" src="../models/meditlargeorbs.dae"></a-asset-item>
       <a-asset-item id="meditpinkorbs" src="../models/meditpinkorbs.dae"></a-asset-item>
       <a-mixin id="half-scale" scale="0.5 0.5 0.5"></a-mixin>
-      <a-mixin id="fourth-scale" scale="0.25 0.25 0.25"></a-mixin>      
+      <a-mixin id="fourth-scale" scale="0.25 0.25 0.25"></a-mixin>
     </a-assets>
 
     <a-entity camera position="0 -1 0" wasd-controls="acceleration: 50w" look-controls></a-entity>
@@ -69,6 +74,5 @@
 
 
   </a-scene>
-
   </body>
 </html>

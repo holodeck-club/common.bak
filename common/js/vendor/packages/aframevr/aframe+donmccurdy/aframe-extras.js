@@ -1,0 +1,1 @@
+"bundle";!function(){var a=System.amdDefine;a("github:aframevr/aframe@master.js",["github:aframevr/aframe@master/dist/aframe.js"],function(a){return a})}(),System.registerDynamic("github:donmccurdy/aframe-extras@1.15.1.js",["github:donmccurdy/aframe-extras@1.15.1/index.js"],!0,function(a,b,c){return c.exports=a("github:donmccurdy/aframe-extras@1.15.1/index.js"),c.exports});
