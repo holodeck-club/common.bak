@@ -1,6 +1,6 @@
-# A-Frame Wonderland
+# WebVR Wonderland
 
-Greetings! This is an A-Frame playground — A-Wonderland, if you will.
+Greetings! This is a WebVR playground, mostly A-Frame experiments. One could call it A-Wonderland.
 
 
 ## Local development
