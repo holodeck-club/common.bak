@@ -12,6 +12,7 @@
       "../../common/js/lib/aframe-viewmode-component.js",
       "aframe-href-component",
       "annyang",
+      "../../common/js/lib/voice-nav.js",
       "../js/voice-controls.js"
     ]
   }
