@@ -1,6 +1,6 @@
 {
   "private": true,
-  "license": "Apache-2.0",
+  "license": "Creative Commons Attribution 3.0 Unported License",
   "devDependencies": {
     "browser-sync": "^2.12.8",
     "jspm": "^0.16.34"

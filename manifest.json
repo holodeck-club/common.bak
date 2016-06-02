@@ -1,10 +1,10 @@
 {
-  "name": "A-Frame Wonderland",
-  "short_name": "A-Wonderland",
+  "name": "Holodeck Club",
+  "short_name": "Holodeck",
   "start_url": "./?utm_source=web_app_manifest",
   "display": "standalone",
-  "theme_color": "#0ff",
-  "background_color": "#0ff",
+  "theme_color": "#4aa",
+  "background_color": "#4aa",
   "icons": [
     {
       "src": "https://aframe.io/images/aframe-logo-152.png",

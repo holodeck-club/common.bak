@@ -1,15 +1,9 @@
-# WebVR Wonderland
+# Holodeck Club
 
-Greetings! This is a WebVR playground, mostly A-Frame experiments. One could call it A-Wonderland.
+Greetings! This is a WebVR playground, a Holodeck club.
 
 
 ## Local development
-
-First, clone this repo:
-
-```bash
-git clone git@github.com:aframevr/wonderland.git aframevr-wonderland && cd aframevr-wonderland
-```
 
 You'll need a local development server to work on this project.
 
@@ -29,6 +23,36 @@ npm start
 
 If you'd rather not depend on Node, there are [several other options of running the content locally](https://github.com/mrdoob/three.js/wiki/How-to-run-things-locally).
 
+
+### Easy installation
+
+Or all the commands here:
+
+```bash
+export HOLODECK_CLUB_PATH=$HOME'/holodeck-club'  # or some path of your choosing
+mkdir -p $HOLODECK_CLUB_PATH
+git clone holodeck-club/lobby $HOLODECK_CLUB_PATH/lobby
+cd $HOLODECK_CLUB_PATH/lobby
+npm start
+npm install
+```
+
+## Creating new groups (repos)
+
+First create the [repo](https://github.com/organizations/holodeck-club/repositories/new). Then run these commands:
+
+```bash
+cat "# holodeck.club/education\n\nhttps://education.holodeck.club/" > README.md
+cat "education.holodeck.club" > CNAME.md
+git init
+git checkout -b gh-pages
+mkdir -p cadavr/ colors/
+touch cadavr/.gitkeep colors/.gitkeep
+git add .
+git commit -m "THIS IS HOLODECK.CLUB/EDUCATION"
+git remote add origin git@github.com:holodeck-club/education.git
+git push -u origin head
+```
 
 ## Maintainers
 

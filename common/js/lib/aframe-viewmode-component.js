@@ -21,16 +21,14 @@
   };
 
   window.addEventListener('load', function () {
-
     var sceneTags = document.querySelectorAll('a-scene');
     Array.prototype.forEach.call(sceneTags, function (scene) {
       scene.setAttribute('viewmode', '');
     });
-
   });
 
   /**
-   * Hyper Link component for A-Frame.
+   * Viewmode component for A-Frame.
    */
   AFRAME.registerComponent('viewmode', {
     dependencies: ['vr-mode-ui'],

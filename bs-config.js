@@ -24,7 +24,13 @@ function getEnvVar (name, defaultVal) {
 var isDev = process.env.NODE_ENVIRONMENT === 'development';
 
 module.exports = {
-  server: '.',
+  server: {
+    baseDir: process.env.HOLODECK_CLUB_PATH || '../',
+    index: 'index.html',
+    routes: {
+      '/': 'lobby'
+    }
+  },
   files: [
     '**',
     '!*\.{7z,com,class,db,dll,dmg,exe,gz,iso,jar,o,log,so,sql,sqlite,tar,zip}',
