@@ -3938,10 +3938,17 @@
 	display: none;
 }
 
+a.fancy-link,
 .spotlights > section > .image {
-	opacity: 0.9;
+	opacity: 0.85;
+	transition: opacity 0.2s ease;
 }
 
+a.fancy-link--light {
+	opacity: 0.5;
+}
+
+a.fancy-link:hover,
 .spotlights > section > .image:hover {
 	opacity: 1;
 }

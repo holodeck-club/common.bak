@@ -28,7 +28,8 @@ module.exports = {
     baseDir: process.env.HOLODECK_CLUB_PATH || '../',
     index: 'index.html',
     routes: {
-      '/': 'lobby'
+      '/': 'lobby',
+      '/common': 'common'
     }
   },
   files: [
