@@ -23,15 +23,31 @@ function getEnvVar (name, defaultVal) {
 
 var isDev = process.env.NODE_ENVIRONMENT === 'development';
 
-module.exports = {
+var opts = {
   server: {
     baseDir: process.env.HOLODECK_CLUB_PATH || '../',
-    index: 'index.html',
     routes: {
-      '/': 'lobby',
-      '/common': 'common'
+      '/': 'common/'
     }
   },
+  middleware: [
+    function (req, res, next) {
+      /** First middleware handler **/
+      var pathname = require('url').parse(req.url).pathname;
+      if (pathname === '/') {
+        req.url = req.url.replace('/', '/common/');
+        res.writeHead(301, {Location: req.url});
+        res.end();
+      } else if (pathname.indexOf('manifest.json') > -1 ||
+                 pathname.indexOf('.css') > -1 ||
+                 pathname.indexOf('.js') > -1) {
+        // TODO: Rewrite `holodeck.club` URLS
+        // (See https://github.com/holodeck-club/common/issues/1)
+      }
+      return next();
+    }
+  ],
+  rewriteRules: [],
   files: [
     '**',
     '!*\.{7z,com,class,db,dll,dmg,exe,gz,iso,jar,o,log,so,sql,sqlite,tar,zip}',
@@ -40,8 +56,19 @@ module.exports = {
   watchOptions: {
     ignoreInitial: true
   },
-  open: getEnvVar('BS_OPEN', isDev),
+  open: getEnvVar('BS_OPEN', false),
   notify: getEnvVar('BS_NOTIFY', false),
   tunnel: getEnvVar('BS_TUNNEL', false),
   minify: getEnvVar('BS_MINIFY', isDev)
 };
+
+// TODO: Rewrite `holodeck.club` URLS
+// (See https://github.com/holodeck-club/common/issues/2)
+// opts.rewriteRules.push({
+//   match: new RegExp('https://holodeck.club/'),
+//   fn: function () {
+//     return '/';
+//   }
+// });
+
+module.exports = opts;

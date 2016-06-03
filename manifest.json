@@ -18,11 +18,11 @@
   ],
   "prefer_related_applications": false,
   "aframe": {
-    "version": "/common/js/lib/aframe.js",
+    "version": "/common/assets/js/lib/aframe.js",
     "components": [
       "aframe-href-component",
       "annyang",
-      "/common/js/voice-controls.js"
+      "/common/assets/js/voice-controls.js"
     ]
   }
 }

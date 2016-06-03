@@ -1,5 +1,11 @@
 (function () {
 
+var hasAFrameScene = document.querySelector('a-scene');
+
+if (!hasAFrameScene) {
+  return;
+}
+
 // var isLocal = document.querySelector('#__bs_script__') || window.location.protocol !== 'https:';
 var isLocal = false;
 
