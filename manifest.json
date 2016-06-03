@@ -23,6 +23,7 @@
       "aframe-href-component",
       "annyang",
       "/common/assets/js/voice-controls.js"
-    ]
+    ],
+    "viewmode": "projection=stereo"
   }
 }

@@ -1,8 +1,9 @@
 (function () {
 
-var hasAFrameScene = document.querySelector('a-scene');
+var hasLoader = document.head.querySelector('script[src*="common/assets/js/lib/loader.js"]');
 
-if (!hasAFrameScene) {
+if (!hasLoader) {
+  console.warn('[manifest-loader] Could not find A-Frame Manifest Loader');
   return;
 }
 
@@ -27,7 +28,7 @@ function getPackageUrl (path) {
 
   if (path.split('@')[0].indexOf('/') !== -1) {
     // Assume GitHub.
-    console.warn('GitHub currently unsupported; use npm package name instead.');
+    console.warn('[manifest-loader] GitHub currently unsupported; use npm package name instead.');
     return path;
   }
 
@@ -105,6 +106,17 @@ function createScript (src) {
   return s;
 }
 
+function createMeta (opts) {
+  if (!opts) {
+    return;
+  }
+  var m = document.createElement('script');
+  Object.keys(opts).forEach(function (key) {
+    m.setAttribute(key, opts[key]);
+  });
+  return m;
+}
+
 var manifest = document.querySelector('link[rel="manifest"]');
 
 if (manifest) {
@@ -128,7 +140,16 @@ if (manifest) {
       var deps = Object.keys(manifestData.package.dependencies);
       var jsFn = '/js/vendor/packages/' + getDepFilename(deps);
       scripts.push(jsFn);
-    } else if (manifestData.aframe) {
+    }
+
+    if (manifestData.aframe) {
+      var viewmode = manifestData.aframe.viewmode;
+      if (viewmode) {
+        var meta = createMeta({name: 'viewmode', content: viewmode});
+        if (meta) {
+          document.head.appendChild(meta);
+        }
+      }
       var components = manifestData.aframe.components;
       if (manifestData.aframe.version) {
         console.log('[manifest-loader] Requesting A-Frame version "%s"', manifestData.aframe.version);

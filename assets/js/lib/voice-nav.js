@@ -3,19 +3,18 @@
     return;
   }
 
-  var back = function () {
+  var strip = function (str) {
+    return (str || '').trim();
+  };
+
+  var goBack = function () {
     console.log('go back');
     window.history.go(-1);
   };
 
-  var forward = function () {
+  var goForward = function () {
     console.log('go forward');
     window.history.go(1);
-  };
-
-  var speechCmds = {
-    back: back,
-    forward: forward
   };
 
   // Monkeypatch Annyang :)
@@ -31,6 +30,11 @@
       item.title = (item.title || item.slug || '').replace(/&/g, 'and');
       return item;
     });
+
+    var speechCmds = {
+      back: goBack,
+      forward: goForward
+    };
 
     addSpeechCmd(choices[0], 'first');
     addSpeechCmd(choices[0], 'start');
@@ -129,7 +133,7 @@
           userSaid.indexOf('backward') !== -1 ||
           userSaid.indexOf('backwards') !== -1 ||
           userSaid.indexOf('reverse') !== -1) {
-        speechCmds.back();
+        goBack();
         return;
       }
 
@@ -138,7 +142,7 @@
           userSaid.indexOf('forwards') !== -1 ||
           userSaid.indexOf('skip') !== -1 ||
           userSaid.indexOf('pass') !== -1) {
-        speechCmds.forward();
+        goForward();
         return;
       }
 
@@ -155,12 +159,12 @@
 
         if (words.indexOf('backward') !== -1 ||
             words.indexOf('backwards') !== -1) {
-          speechCmds.back();
+          goBack();
           return;
         }
         if (words.indexOf('forward') !== -1 ||
             words.indexOf('forwards') !== -1) {
-          speechCmds.forward();
+          goForward();
           return;
         }
 
@@ -168,11 +172,11 @@
             words.indexOf('previous') !== -1 ||
             words.indexOf('last') !== -1) {
           // Disclaimer: last could be confused with last item.
-          speechCmds.back();
+          goBack();
           return;
         }
         if (words.indexOf('next') !== -1) {
-          speechCmds.forward();
+          goForward();
           return;
         }
       }

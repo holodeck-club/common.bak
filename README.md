@@ -42,7 +42,7 @@ npm install
 First create the [repo](https://github.com/organizations/holodeck-club/repositories/new). Then run these commands:
 
 ```bash
-cat "# holodeck.club/education\n\nhttps://education.holodeck.club/" > README.md
+cat "# Holodeck Club > Education\n\n__https://education.holodeck.club/__" > README.md
 cat "education.holodeck.club" > CNAME.md
 git init
 git checkout -b gh-pages
